@@ -1,0 +1,25 @@
+# Python / Django
+venv/
+__pycache__/
+*.pyc
+*.pyo
+db.sqlite3
+.env
+staticfiles/
+media/
+
+# Secrets
+secrets/
+*.json
+!package.json
+!package-lock.json
+
+# Node / React
+node_modules/
+dist/
+build/
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
