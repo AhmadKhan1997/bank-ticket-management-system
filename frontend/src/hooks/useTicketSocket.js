@@ -4,7 +4,7 @@ export function useTicketSocket(onMessageReceived) {
   const socketRef = useRef(null);
 
   useEffect(function () {
-    const socket = new WebSocket("ws://127.0.0.1:8000/ws/tickets/");
+    const socket = new WebSocket(import.meta.env.VITE_WS_BASE_URL);
     socketRef.current = socket;
 
     socket.onopen = function () {

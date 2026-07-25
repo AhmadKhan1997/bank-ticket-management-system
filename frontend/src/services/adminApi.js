@@ -4,14 +4,13 @@ const ADMIN_USERNAME = import.meta.env.VITE_ADMIN_USERNAME;
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
 
 const adminClient = axios.create({
-  baseURL: "http://127.0.0.1:8000/api",
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 let cachedAdminToken = null;
 
 async function fetchNewAdminToken() {
-  const response = await axios.post("http://127.0.0.1:8000/api/token/", {
-    username: ADMIN_USERNAME,
+  const response = await axios.post(import.meta.env.VITE_API_BASE_URL + "/token/", {    username: ADMIN_USERNAME,
     password: ADMIN_PASSWORD,
   });
   cachedAdminToken = response.data.access;
