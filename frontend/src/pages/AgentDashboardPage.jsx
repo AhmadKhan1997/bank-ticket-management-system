@@ -27,6 +27,8 @@ export default function AgentDashboardPage() {
   navigate("/login");
 }
 
+  const agentUsername = localStorage.getItem("username");
+
   let freshTicketCount = 0;
   for (let i = 0; i < waitingQueue.length; i++) {
     if (waitingQueue[i].skip_count === 0) {
@@ -40,7 +42,7 @@ export default function AgentDashboardPage() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-xl font-semibold text-slate-800">Agent dashboard</h1>
-            <p className="text-sm text-slate-500">Counter 3 &middot; Agent: Sarah Malik</p>
+            <p className="text-sm text-slate-500">Agent: {agentUsername}</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-4 py-2">

@@ -180,7 +180,15 @@ else:
         },
     }
 
-GOOGLE_APPLICATION_CREDENTIALS = os.path.join(BASE_DIR, 'secrets', 'bank-ticket-system-679961a25212.json')
+
+RENDER_SECRET_PATH = '/etc/secrets/bank-ticket-system-679961a25212.json'
+LOCAL_SECRET_PATH = os.path.join(BASE_DIR, 'secrets', 'bank-ticket-system-679961a25212.json')
+
+if os.path.exists(RENDER_SECRET_PATH):
+    GOOGLE_APPLICATION_CREDENTIALS = RENDER_SECRET_PATH
+else:
+    GOOGLE_APPLICATION_CREDENTIALS = LOCAL_SECRET_PATH
+
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = GOOGLE_APPLICATION_CREDENTIALS
 
 STATIC_URL = '/static/'
